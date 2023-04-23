@@ -502,19 +502,6 @@ class _MessageListScreenState extends State<MessageListScreen> {
       ),
     );
   }
-  ShaderMask Grident_Icon(
-      Color topColor, Color bottomColor) {
-    return ShaderMask(
-      blendMode: BlendMode.srcIn,
-      shaderCallback: (Rect bounds) => RadialGradient(
-        stops: [1.0, 10],
-        colors: [
-          topColor,
-          bottomColor,
-        ],
-      ).createShader(bounds),
-    );
-  }
 }
 
 
