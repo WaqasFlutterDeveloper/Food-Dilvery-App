@@ -151,7 +151,7 @@ class ProductItemScreen extends StatelessWidget {
                           ),
                           child: Center(
                             child: Text('Popular', textAlign: TextAlign.left, style: TextStyle(
-                                color: Colors.red,
+                                color: Color(0xFF006533),
                                 fontFamily: 'BentonSansMedium',
                                 fontSize: 12,
                                 letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
@@ -209,7 +209,7 @@ class ProductItemScreen extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Icon(Icons.location_on,size: 22,),
+                            Icon(Icons.location_on,size: 22,color: Color(0xFF006533),),
                             Text('19 Km', textAlign: TextAlign.left, style: TextStyle(
                                 color: Color.fromRGBO(59, 59, 59, 1),
                                 fontFamily: 'BentonSansRegular',
@@ -223,7 +223,7 @@ class ProductItemScreen extends StatelessWidget {
                         SizedBox(width: 14.0,),
                         Row(
                           children: [
-                            Center(child: Icon(Icons.star_half,size: 22,)),
+                            Center(child: Icon(Icons.star_half,size: 22,color: Color(0xFF006533),)),
                             Text('4,8 Rating', textAlign: TextAlign.left, style: TextStyle(
                                 color: Color.fromRGBO(59, 59, 59, 1),
                                 fontFamily: 'BentonSansRegular',
