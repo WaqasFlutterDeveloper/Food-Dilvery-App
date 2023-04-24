@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import '../../Utils/appRoutes.dart';
+import 'Verification_Otp_Code.dart';
 class ForgetPasswordScreen extends StatefulWidget {
   const ForgetPasswordScreen({Key? key}) : super(key: key);
 
@@ -167,6 +170,47 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                               ),
                             )),
                       ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 60.0,left: 50),
+                    child: InkWell(
+                      onTap: (){
+                        AppRoutes.push(context, VerificationOtpCodeScreen());
+                      },
+                      child: Container(
+                          margin: EdgeInsets.only(top: 50.0,left: 40),
+                          child: Center(
+                            child: Text('Next', textAlign: TextAlign.left, style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'BentonSansBold',
+                                fontSize: 16,
+                                letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                                fontWeight: FontWeight.normal,
+                                height: 1.0 /*PERCENT not supported*/
+                            ),),
+                          ),
+                          width: 141,
+                          height: 57,
+                          decoration: BoxDecoration(
+                            borderRadius : BorderRadius.only(
+                              topLeft: Radius.circular(15),
+                              topRight: Radius.circular(15),
+                              bottomLeft: Radius.circular(15),
+                              bottomRight: Radius.circular(15),
+                            ),
+                            gradient : LinearGradient(
+                                begin: Alignment(0.8459399938583374,0.1310659646987915),
+                                end: Alignment(-0.1310659646987915,0.11150387674570084),
+                                colors: [
+// 16804B
+                                  Color(0xFF006533),
+                                  Color(0xFF16804B),
+
+                                ]
+                            ),
+                          )
+                      ),
                     ),
                   ),
                 ],

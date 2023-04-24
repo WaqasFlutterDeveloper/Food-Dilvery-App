@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../Utils/appRoutes.dart';
+import 'logIn_page.dart';
+
 class LocationScreen extends StatefulWidget {
   const LocationScreen({Key? key}) : super(key: key);
 
@@ -201,39 +204,44 @@ class _LocationScreenState extends State<LocationScreen> {
                             ),
                             Padding(
                               padding: const EdgeInsets.only(top: 25.0,left: 0.0,bottom: 0.0),
-                              child: Container(
-                                  child: Center(
-                                    child:
-                                    // Figma Flutter Generator CallWidget - TEXT
-                                    Text('Set Location', textAlign: TextAlign.left, style: TextStyle(
-                                        color: Color.fromRGBO(9, 5, 28, 1),
-                                        fontFamily: 'Rubik',
-                                        fontSize: 14,
-                                        letterSpacing: 0.5,
-                                        fontWeight: FontWeight.normal,
-                                        height: 1
-                                    ),),
-                                  ),
-                                  width: 322,
-                                  height: 57,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(15),
-                                      topRight: Radius.circular(15),
-                                      bottomLeft: Radius.circular(15),
-                                      bottomRight: Radius.circular(15),
+                              child: InkWell(
+                                onTap: (){
+                                  AppRoutes.push(context, LoginScreen());
+                                },
+                                child: Container(
+                                    child: Center(
+                                      child:
+                                      // Figma Flutter Generator CallWidget - TEXT
+                                      Text('Set Location', textAlign: TextAlign.left, style: TextStyle(
+                                          color: Color.fromRGBO(9, 5, 28, 1),
+                                          fontFamily: 'Rubik',
+                                          fontSize: 14,
+                                          letterSpacing: 0.5,
+                                          fontWeight: FontWeight.normal,
+                                          height: 1
+                                      ),),
                                     ),
-                                    gradient: LinearGradient(
-                                        begin: Alignment(0.8459399938583374,
-                                            0.1310659646987915),
-                                        end: Alignment(-0.1310659646987915,
-                                            0.11150387674570084),
-                                        colors: [
+                                    width: 322,
+                                    height: 57,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(15),
+                                        topRight: Radius.circular(15),
+                                        bottomLeft: Radius.circular(15),
+                                        bottomRight: Radius.circular(15),
+                                      ),
+                                      gradient: LinearGradient(
+                                          begin: Alignment(0.8459399938583374,
+                                              0.1310659646987915),
+                                          end: Alignment(-0.1310659646987915,
+                                              0.11150387674570084),
+                                          colors: [
 // 16804B
-                                        Color(0xFF9BDABC),
-                                        Color(0xFF9BDABC),
-                                        ]),
-                                  )),
+                                          Color(0xFF9BDABC),
+                                          Color(0xFF9BDABC),
+                                          ]),
+                                    )),
+                              ),
                             ),
 
                           ],

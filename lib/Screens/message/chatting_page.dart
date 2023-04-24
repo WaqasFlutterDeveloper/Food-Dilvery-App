@@ -1,86 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:coucou_express/Screens/Auth_Section/signUp_page.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-class ChattingScreen extends StatefulWidget {
-  const ChattingScreen({Key? key}) : super(key: key);
-
-  @override
-  State<ChattingScreen> createState() => _ChattingScreenState();
-}
-
-class _ChattingScreenState extends State<ChattingScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
-          children: [
-            Stack(
-              children: [
-                Positioned(
-                  top: 0,
-                  bottom: 350,
-                  child: Container(
-                    // width: 375,
-                    // height: 812,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Colors.white,
-                          // Colors.red.mix(Colors.green, 1-60),
-                          Colors.white,
-                        ],
-                        // stops: [
-                        //   1.0,
-                        //   1.0,
-                        //   1.0,
-                        // ],
-                      ),
-                    ),
-                    // height: 278,
-                    // width: double.infinity,
-                    child: ShaderMask(
-                      shaderCallback: (Rect bounds) {
-                        return LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            // Colors.green.shade50,
-                            Color(0xFFAFDFC7),
-                            // Colors.red.mix(Colors.green, 1-60),
-                            Colors.white,
-                          ],
-                          // stops: [
-                          // 1.0,
-                          // 1.0,
-                          // 1.0,
-                          // ],
-                        ).createShader(bounds);
-                      },
-                      blendMode: BlendMode.srcIn,
-                      child: SvgPicture.asset(
-                        'images/bg1.svg',
-                        alignment: Alignment.center,
-// width: MediaQuery.of(context).size.width,
-                        width: double.infinity,
-                        height: 170,
-// height: MediaQuery.of(context).size.height,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-}
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
@@ -128,16 +48,21 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                   child: Row(
                     children: [
-                      Container(
-                        width: 45,
-                        height: 45,
-                        decoration: BoxDecoration(
-                          borderRadius : BorderRadius.circular(15),
-                          color : Color.fromRGBO(249, 168, 77, 1),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 10.0),
-                          child: Icon(Icons.arrow_back_ios),
+                      InkWell(
+                        onTap:(){
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          width: 45,
+                          height: 45,
+                          decoration: BoxDecoration(
+                            borderRadius : BorderRadius.circular(15),
+                            color : Color.fromRGBO(249, 168, 77, 1),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Icon(Icons.arrow_back_ios),
+                          ),
                         ),
                       ),
                     ],

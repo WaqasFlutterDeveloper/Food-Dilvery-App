@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
 
-import 'home_section.dart';
-class ExploreMenuScreen extends StatefulWidget {
-  const ExploreMenuScreen({Key? key}) : super(key: key);
+import '../../Utils/appRoutes.dart';
+import '../order/DetailProduct.dart';
+import 'Home_Page.dart';
+import 'Notification_Screen.dart';
+
+class ExploreRestaurantScreen extends StatefulWidget {
+  const ExploreRestaurantScreen({Key? key}) : super(key: key);
 
   @override
-  State<ExploreMenuScreen> createState() => _ExploreMenuScreenState();
+  State<ExploreRestaurantScreen> createState() => _ExploreRestaurantScreenState();
 }
 
-class _ExploreMenuScreenState extends State<ExploreMenuScreen> {
-  int _selectedTab = 0;
+class _ExploreRestaurantScreenState extends State<ExploreRestaurantScreen> {
 
-  List _pages = [
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,16 +70,21 @@ class _ExploreMenuScreenState extends State<ExploreMenuScreen> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 10.0,right: 10.0,top: 15),
-                        child: Container(
-                          height: 45,
-                          width: 45,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFF6FBF8),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: Icon(Icons.notifications_none_sharp,
-                            size: 30,
-                            color: Color(0xFF006533),
+                        child: InkWell(
+                          onTap: (){
+                            AppRoutes.push(context, NotificationScreen());
+                          },
+                          child: Container(
+                            height: 45,
+                            width: 45,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFF6FBF8),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Icon(Icons.notifications_none_sharp,
+                              size: 30,
+                              color: Color(0xFF006533),
+                            ),
                           ),
                         ),
                       ),
@@ -93,26 +95,6 @@ class _ExploreMenuScreenState extends State<ExploreMenuScreen> {
             ),
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        currentIndex: _selectedTab,
-        onTap: (index){
-          setState(() {
-            _selectedTab = index;
-          });
-        },
-        selectedItemColor: Color(0xFF006533),
-        unselectedItemColor: Color(0xFF9BDABC),
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "About"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart), label: "Product"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.message), label: "Contact"),
-        ],
       ),
       body: ListView(
         children: [
@@ -172,13 +154,12 @@ class _ExploreMenuScreenState extends State<ExploreMenuScreen> {
                   ),
                 ),
 
-
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Popular Menu', textAlign: TextAlign.left, style: TextStyle(
+                      Text('Nearest Restaurant', textAlign: TextAlign.left, style: TextStyle(
                           color: Color.fromRGBO(9, 4, 27, 1),
                           fontFamily: 'BentonSansBold',
                           fontSize: 15,
@@ -190,18 +171,35 @@ class _ExploreMenuScreenState extends State<ExploreMenuScreen> {
                   ),
                 ),
 
-
                 SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
+                  scrollDirection: Axis.vertical,
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      menu_card('https://purepng.com/public/uploads/large/purepng.com-food-platefood-meat-plate-tasty-grill-breakfast-dinner-french-fries-launch-941524624215fnp4x.png'),
-                      menu_card('https://purepng.com/public/uploads/large/purepng.com-food-platefood-meat-plate-tasty-grill-breakfast-dinner-french-fries-launch-941524624270veqpm.png'),
-                      menu_card('https://purepng.com/public/uploads/large/vegetables-btv.png'),
-                      menu_card('https://purepng.com/public/uploads/large/purepng.com-amaranth-leavesvegetablesspinach-amaranth-leaves-leafs-941524684589dw2ks.png'),
+                     Row(
+                       children: [
+                         resurent_card(context),
+                         resurent_card(context),
+                       ],
+                     ),
+                     Row(
+                       children: [
+                         resurent_card(context),
+                         resurent_card(context),
+                       ],
+                     ),
+                     Row(
+                       children: [
+                         resurent_card(context),
+                         resurent_card(context),
+                       ],
+                     ),
+
                     ],
                   ),
                 ),
+
+
               ],
             ),
           ),
@@ -225,107 +223,90 @@ class _ExploreMenuScreenState extends State<ExploreMenuScreen> {
 }
 
 
-
-Widget menu_card(String imageUrl){
-  return Card(
-    shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10)),
-    elevation: 2.5,
-    margin: EdgeInsets.only(left: 10,right: 15,bottom: 10,top: 10),
-    child: Container(
-      // height: 230,
-      // width: 160,
-      height: 149,
-      width:323,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        //   boxShadow: [
-        //     BoxShadow(
-        //       color: Colors.white10,
-        //       spreadRadius: 2,
-        //       offset: Offset(0, 0),
-        //     ),
-        //   ],
-        color: Colors.white,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Expanded(
+Widget resurent_card(BuildContext context){
+  return InkWell(
+    onTap: (){
+      AppRoutes.push(context, ProductItemScreen(imageUrl: 'https://cdn-gncif.nitrocdn.com/dQqMLyEIFxLtcgsNWIprSsdjlDrnXITG/assets/images/optimized/rev-9827931/wp-content/uploads/2022/05/creative-indian-restaurant-names-1024x682.jpg'));
+    },
+    child: Card(
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10)),
+      elevation: 2.5,
+      margin: EdgeInsets.only(left: 10,right: 10,bottom: 10,top: 10),
+      child: Container(
+        // height: 230,
+        // width: 160,
+        height: 184,
+        width:147,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          //   boxShadow: [
+          //     BoxShadow(
+          //       color: Colors.white10,
+          //       spreadRadius: 2,
+          //       offset: Offset(0, 0),
+          //     ),
+          //   ],
+          //   color: Colors.white,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Expanded(
+                flex:1,
+                // child:Text('jh'),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        image: DecorationImage(
+                          // image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU9CRIOUQTwoUx77S9dULnZVdYBAqwaH72TdkkaEEV&s'),
+                          image: NetworkImage('https://cdn-gncif.nitrocdn.com/dQqMLyEIFxLtcgsNWIprSsdjlDrnXITG/assets/images/optimized/rev-9827931/wp-content/uploads/2022/05/creative-indian-restaurant-names-1024x682.jpg'),
+                          fit: BoxFit.cover,
+                          colorFilter:  ColorFilter.mode(Colors.black.withOpacity(0.8), BlendMode.dstATop),
+                          opacity:1.0,
+                        ),
+                      )
+                  ),
+                )
+              // Image.network('https://businessday.ng/wp-content/uploads/2021/05/Real-estate.jpg',fit: BoxFit.cover,),
+            ),
+            Expanded(
               flex:1,
-              // child:Text('jh'),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Container(
-                    height: 100,
-                    width: 100,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                      image: DecorationImage(
-                        // image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU9CRIOUQTwoUx77S9dULnZVdYBAqwaH72TdkkaEEV&s'),
-                        image: NetworkImage(imageUrl),
-                        fit: BoxFit.cover,
-                        colorFilter:  ColorFilter.mode(Colors.black.withOpacity(0.8), BlendMode.dstATop),
-                        opacity:1.0,
-                      ),
-                    )
-                ),
-              )
-            // Image.network('https://businessday.ng/wp-content/uploads/2021/05/Real-estate.jpg',fit: BoxFit.cover,),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 50.0,left: 10,right: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                    child:       // Figma Flutter Generator MenunameWidget - TEXT
-                    Text('Green Noddle', textAlign: TextAlign.left, style: TextStyle(
-                        color: Color.fromRGBO(9, 4, 27, 1),
-                        fontFamily: 'BentonSansMedium',
-                        fontSize: 15,
-                        letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
-                        fontWeight: FontWeight.normal,
-                        height: 1.5 /*PERCENT not supported*/
-                    ),)),
-                SizedBox(height: 10,),
-                Center(
-                  child:       // Figma Flutter Generator RestaurantnameWidget - TEXT
-                  Text('Noodle Home', textAlign: TextAlign.left, style: TextStyle(
-                      color: Color.fromRGBO(59, 59, 59, 1),
-                      fontFamily: 'BentonSansRegular',
-                      fontSize: 14,
-                      letterSpacing: 0.5,
-                      fontWeight: FontWeight.normal,
-                      height: 1
-                  ),),),
-              ],
-            ),
-          ),
-          Expanded(
-            flex:1,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 50.0,left: 10,right: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(
-                      child:       // Figma Flutter Generator PriceWidget - TEXT
-                      Text('\$15', textAlign: TextAlign.left, style: TextStyle(
-                          color: Color.fromRGBO(254, 173, 29, 1),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: Text('Vegan Resto', textAlign: TextAlign.left, style: TextStyle(
+                          color: Color.fromRGBO(0, 0, 0, 1),
                           fontFamily: 'BentonSansBold',
-                          fontSize: 22,
+                          fontSize: 16,
                           letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
                           fontWeight: FontWeight.normal,
                           height: 1.5 /*PERCENT not supported*/
-                      ),)
-                  ),
-                ],
-              ),
-            ),),
-        ],
+                      ),),
+                    ),
+                    Center(
+                      child: Text('12 Mins', style: TextStyle(
+                          color: Color.fromRGBO(0, 0, 0, 1),
+                          fontFamily: 'BentonSansBook',
+                          fontSize: 13,
+                          letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                          fontWeight: FontWeight.normal,
+                          height: 1.5 /*PERCENT not supported*/
+                      ),),
+                    )
+                  ],
+                ),
+              ),),
+          ],
+        ),
       ),
     ),
   );

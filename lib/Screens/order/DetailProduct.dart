@@ -2,10 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-
-
 class ProductItemScreen extends StatelessWidget {
-  const ProductItemScreen({Key? key}) : super(key: key);
+  String imageUrl='';
+   ProductItemScreen({required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +14,8 @@ class ProductItemScreen extends StatelessWidget {
             children: [
               SizedBox(
                 width: double.infinity,
-                // child: Image.network("https://purepng.com/public/uploads/large/vegetables-btv.png"),
-                child: Image.network("https://images.unsplash.com/photo-1573067485648-4cb2618b5e09?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"),
+                child: Image.network(imageUrl),
+                // child: Image.network("https://images.unsplash.com/photo-1573067485648-4cb2618b5e09?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"),
               ),
               // buttonArrow(context),
               scroll(),

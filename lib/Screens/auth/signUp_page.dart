@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../Utils/appRoutes.dart';
+import 'Signup_Process.dart';
 import 'logIn_page.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -391,42 +393,47 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             },
                             child: Padding(
                               padding: const EdgeInsets.only(top: 32.0),
-                              child: Container(
-                                  child: Center(
-                                    child: Text(
-                                      'Create Account',
-                                      textAlign: TextAlign.left,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontFamily: 'BentonSansBold',
-                                          fontSize: 16,
-                                          letterSpacing:
-                                              0 /*percentages not used in flutter. defaulting to zero*/,
-                                          fontWeight: FontWeight.normal,
-                                          height: 1.0 /*PERCENT not supported*/
-                                          ),
+                              child: InkWell(
+                                onTap: (){
+                                  AppRoutes.push(context, SignupProcessScreen());
+                                },
+                                child: Container(
+                                    child: Center(
+                                      child: Text(
+                                        'Create Account',
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontFamily: 'BentonSansBold',
+                                            fontSize: 16,
+                                            letterSpacing:
+                                                0 /*percentages not used in flutter. defaulting to zero*/,
+                                            fontWeight: FontWeight.normal,
+                                            height: 1.0 /*PERCENT not supported*/
+                                            ),
+                                      ),
                                     ),
-                                  ),
-                                  width: 141,
-                                  height: 57,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(15),
-                                      topRight: Radius.circular(15),
-                                      bottomLeft: Radius.circular(15),
-                                      bottomRight: Radius.circular(15),
-                                    ),
-                                    gradient: LinearGradient(
-                                        begin: Alignment(0.8459399938583374,
-                                            0.1310659646987915),
-                                        end: Alignment(-0.1310659646987915,
-                                            0.11150387674570084),
-                                        colors: [
+                                    width: 141,
+                                    height: 57,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(15),
+                                        topRight: Radius.circular(15),
+                                        bottomLeft: Radius.circular(15),
+                                        bottomRight: Radius.circular(15),
+                                      ),
+                                      gradient: LinearGradient(
+                                          begin: Alignment(0.8459399938583374,
+                                              0.1310659646987915),
+                                          end: Alignment(-0.1310659646987915,
+                                              0.11150387674570084),
+                                          colors: [
 // 16804B
-                                          Color(0xFF006533),
-                                          Color(0xFF16804B),
-                                        ]),
-                                  )),
+                                            Color(0xFF006533),
+                                            Color(0xFF16804B),
+                                          ]),
+                                    )),
+                              ),
                             ),
                           ),
                           InkWell(

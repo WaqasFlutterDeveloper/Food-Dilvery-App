@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../Utils/appRoutes.dart';
+import 'ExploreMenu.dart';
+import 'Notification_Screen.dart';
+
 class FilterScreen extends StatefulWidget {
   const FilterScreen({Key? key}) : super(key: key);
 
@@ -64,16 +68,21 @@ class _FilterScreenState extends State<FilterScreen> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 10.0,right: 10.0,top: 15),
-                        child: Container(
-                          height: 45,
-                          width: 45,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFF6FBF8),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: Icon(Icons.notifications_none_sharp,
-                            size: 30,
-                            color: Color(0xFF006533),
+                        child: InkWell(
+                          onTap: (){
+                            AppRoutes.push(context, NotificationScreen());
+                          },
+                          child: Container(
+                            height: 45,
+                            width: 45,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFF6FBF8),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Icon(Icons.notifications_none_sharp,
+                              size: 30,
+                              color: Color(0xFF006533),
+                            ),
                           ),
                         ),
                       ),
@@ -444,42 +453,47 @@ class _FilterScreenState extends State<FilterScreen> {
 
                 Padding(
                   padding: const EdgeInsets.only(top: 60.0,left: 8.0),
-                  child: Container(
-                      child: Center(
-                        child: Text(
-                          'Search',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'BentonSansBold',
-                              fontSize: 14,
-                              letterSpacing:
-                              0 /*percentages not used in flutter. defaulting to zero*/,
-                              fontWeight: FontWeight.normal,
-                              height: 1.0 /*PERCENT not supported*/
+                  child: InkWell(
+                    onTap: (){
+                      AppRoutes.push(context, ExploreMenuScreen());
+                    },
+                    child: Container(
+                        child: Center(
+                          child: Text(
+                            'Search',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'BentonSansBold',
+                                fontSize: 14,
+                                letterSpacing:
+                                0 /*percentages not used in flutter. defaulting to zero*/,
+                                fontWeight: FontWeight.normal,
+                                height: 1.0 /*PERCENT not supported*/
+                            ),
                           ),
                         ),
-                      ),
-                      width: 322,
-                      height: 52,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(15),
-                          topRight: Radius.circular(15),
-                          bottomLeft: Radius.circular(15),
-                          bottomRight: Radius.circular(15),
-                        ),
-                        gradient: LinearGradient(
-                            begin: Alignment(0.8459399938583374,
-                                0.1310659646987915),
-                            end: Alignment(-0.1310659646987915,
-                                0.11150387674570084),
-                            colors: [
+                        width: 322,
+                        height: 52,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(15),
+                            topRight: Radius.circular(15),
+                            bottomLeft: Radius.circular(15),
+                            bottomRight: Radius.circular(15),
+                          ),
+                          gradient: LinearGradient(
+                              begin: Alignment(0.8459399938583374,
+                                  0.1310659646987915),
+                              end: Alignment(-0.1310659646987915,
+                                  0.11150387674570084),
+                              colors: [
 // 16804B
-                              Color(0xFF006533),
-                              Color(0xFF16804B),
-                            ]),
-                      )),
+                                Color(0xFF006533),
+                                Color(0xFF16804B),
+                              ]),
+                        )),
+                  ),
                 ),
 
               ],

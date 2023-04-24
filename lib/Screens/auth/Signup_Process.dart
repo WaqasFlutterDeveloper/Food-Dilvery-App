@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import '../../Utils/appRoutes.dart';
+import 'Upload_Photo.dart';
 class SignupProcessScreen extends StatelessWidget {
   const SignupProcessScreen({Key? key}) : super(key: key);
 
@@ -218,10 +221,7 @@ class SignupProcessScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 40.0),
                       child: InkWell(
                         onTap: (){
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(builder: (context) => SignUpScreen()),
-                          // );
+                          AppRoutes.push(context, UploadPhotoScreen());
                         },
                         child: Container(
                           margin: EdgeInsets.only(top: 50.0),

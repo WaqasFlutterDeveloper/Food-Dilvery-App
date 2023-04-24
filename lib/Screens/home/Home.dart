@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../Bottom_Navigation_Bar/mypage.dart';
-import 'chatting_page.dart';
+import '../auth/Profile_Page.dart';
+import '../message/Message_List.dart';
+import '../message/chatting_page.dart';
 import 'package:flutter/material.dart';
 
-import 'home_section.dart';
+import '../order/Order_Details.dart';
+import '../order/Your_Orders.dart';
+import '../order/track_order.dart';
+import 'Home_Page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -19,9 +23,10 @@ class _HomePageState extends State<HomePage> {
 
   List _pages = [
     HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
+    ProfileScreen(),
+    OrderDetailsScreen(),
+    MessageListScreen(),
+    TrackOrder(),
   ];
 
   _changeTab(int index) {
@@ -50,6 +55,8 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(Icons.shopping_cart), label: "Product"),
           BottomNavigationBarItem(
               icon: Icon(Icons.message), label: "Contact"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.location_on_outlined), label: "Location"),
         ],
       ),
       body: _pages[_selectedTab],

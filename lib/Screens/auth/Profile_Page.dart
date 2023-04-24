@@ -2,6 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import '../../Utils/appRoutes.dart';
+import '../home/Home.dart';
+import 'ResetPassword.dart';
+import 'logIn_page.dart';
+
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
@@ -124,49 +129,59 @@ scroll() {
                   padding: const EdgeInsets.only(top: 10.0,bottom: 10.0),
                   child: Column(
                     children: [
-                      Container(
-                        height: 40,
-                        width: 200,
-                        decoration: BoxDecoration(
-                            color: Colors.grey.shade50,
-                            borderRadius: BorderRadius.circular(10.5)
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(Icons.lock,size: 18,color: Color(0xFF006533),),
-                            SizedBox(width: 8.0,),
-                            Text('Change Password', textAlign: TextAlign.left, style: TextStyle(
-                                color: Color.fromRGBO(59, 59, 59, 1),
-                                fontFamily: 'BentonSansMedium',
-                                fontSize: 14,
-                                letterSpacing: 0.5,
-                                fontWeight: FontWeight.normal,
-                                height: 1
-                            ),),
-                          ],
+                      InkWell(
+                        onTap: (){
+                          AppRoutes.replace(context, ResetPasswordScreen());
+                        },
+                        child: Container(
+                          height: 40,
+                          width: 200,
+                          decoration: BoxDecoration(
+                              color: Colors.grey.shade50,
+                              borderRadius: BorderRadius.circular(10.5)
+                          ),
+                          child: Row(
+                            children: [
+                              Icon(Icons.lock,size: 18,color: Color(0xFF006533),),
+                              SizedBox(width: 8.0,),
+                              Text('Change Password', textAlign: TextAlign.left, style: TextStyle(
+                                  color: Color.fromRGBO(59, 59, 59, 1),
+                                  fontFamily: 'BentonSansMedium',
+                                  fontSize: 14,
+                                  letterSpacing: 0.5,
+                                  fontWeight: FontWeight.normal,
+                                  height: 1
+                              ),),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(height: 20.0,),
-                      Container(
-                        height: 40,
-                        width: 200,
-                        decoration: BoxDecoration(
-                            color: Colors.grey.shade50,
-                            borderRadius: BorderRadius.circular(10.5)
-                        ),
-                        child: Row(
-                          children: [
-                            Center(child: Icon(Icons.logout,size: 18, color: Color(0xFFFF4B4B),)),
-                            SizedBox(width: 8.0,),
-                            Text('Log Out', textAlign: TextAlign.left, style: TextStyle(
-                                color: Color(0xFFFF4B4B),
-                                fontFamily: 'BentonSansMedium',
-                                fontSize: 14,
-                                letterSpacing: 0.5,
-                                fontWeight: FontWeight.normal,
-                                height: 1
-                            ),),
-                          ],
+                      InkWell(
+                        onTap: (){
+                          AppRoutes.closeAllScreensAndNavigate(context, LoginScreen());
+                        },
+                        child: Container(
+                          height: 40,
+                          width: 200,
+                          decoration: BoxDecoration(
+                              color: Colors.grey.shade50,
+                              borderRadius: BorderRadius.circular(10.5)
+                          ),
+                          child: Row(
+                            children: [
+                              Center(child: Icon(Icons.logout,size: 18, color: Color(0xFFFF4B4B),)),
+                              SizedBox(width: 8.0,),
+                              Text('Log Out', textAlign: TextAlign.left, style: TextStyle(
+                                  color: Color(0xFFFF4B4B),
+                                  fontFamily: 'BentonSansMedium',
+                                  fontSize: 14,
+                                  letterSpacing: 0.5,
+                                  fontWeight: FontWeight.normal,
+                                  height: 1
+                              ),),
+                            ],
+                          ),
                         ),
                       ),
 

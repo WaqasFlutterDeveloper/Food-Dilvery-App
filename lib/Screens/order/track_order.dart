@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import '../../Utils/appRoutes.dart';
+import '../message/chatting_page.dart';
+
 class TrackOrder extends StatefulWidget {
   const TrackOrder({Key? key}) : super(key: key);
 
@@ -246,30 +249,35 @@ height: MediaQuery.of(context).size.height,
                                   Colors.white,
                                 ]),
                           )),
-                      Container(
-                          child: Center(
-                            child: Icon(Icons.email_rounded,color: Colors.white,),
-                          ),
-                          width: 68,
-                          height: 68,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              topRight: Radius.circular(15),
-                              bottomLeft: Radius.circular(15),
-                              bottomRight: Radius.circular(15),
+                      InkWell(
+                        onTap: (){
+                          AppRoutes.push(context, ChatScreen());
+                        },
+                        child: Container(
+                            child: Center(
+                              child: Icon(Icons.email_rounded,color: Colors.white,),
                             ),
-                            gradient: LinearGradient(
-                                begin: Alignment(0.8459399938583374,
-                                    0.1310659646987915),
-                                end: Alignment(-0.1310659646987915,
-                                    0.11150387674570084),
-                                colors: [
+                            width: 68,
+                            height: 68,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(15),
+                                topRight: Radius.circular(15),
+                                bottomLeft: Radius.circular(15),
+                                bottomRight: Radius.circular(15),
+                              ),
+                              gradient: LinearGradient(
+                                  begin: Alignment(0.8459399938583374,
+                                      0.1310659646987915),
+                                  end: Alignment(-0.1310659646987915,
+                                      0.11150387674570084),
+                                  colors: [
 // 16804B
-                                  Color(0xFF006533),
-                                  Color(0xFF16804B),
-                                ]),
-                          )),
+                                    Color(0xFF006533),
+                                    Color(0xFF16804B),
+                                  ]),
+                            )),
+                      ),
                     ],
                   ),
                 ),

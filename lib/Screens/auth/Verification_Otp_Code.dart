@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
 
+import '../../Utils/appRoutes.dart';
+import 'logIn_page.dart';
+
 class VerificationOtpCodeScreen extends StatefulWidget {
   const VerificationOtpCodeScreen({Key? key}) : super(key: key);
 
@@ -169,38 +172,43 @@ class _VerificationOtpCodeScreenState extends State<VerificationOtpCodeScreen> {
                           //   MaterialPageRoute(builder: (context) => SignUpScreen()),
                           // );
                         },
-                        child: Container(
-                            margin: EdgeInsets.only(top: 50.0),
-                            child: Center(
-                              child: Text('Next', textAlign: TextAlign.left, style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'BentonSansBold',
-                                  fontSize: 16,
-                                  letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
-                                  fontWeight: FontWeight.normal,
-                                  height: 1.0 /*PERCENT not supported*/
-                              ),),
-                            ),
-                            width: 141,
-                            height: 57,
-                            decoration: BoxDecoration(
-                              borderRadius : BorderRadius.only(
-                                topLeft: Radius.circular(15),
-                                topRight: Radius.circular(15),
-                                bottomLeft: Radius.circular(15),
-                                bottomRight: Radius.circular(15),
+                        child: InkWell(
+                          onTap: (){
+                            AppRoutes.push(context, LoginScreen());
+                          },
+                          child: Container(
+                              margin: EdgeInsets.only(top: 50.0),
+                              child: Center(
+                                child: Text('Next', textAlign: TextAlign.left, style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: 'BentonSansBold',
+                                    fontSize: 16,
+                                    letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                                    fontWeight: FontWeight.normal,
+                                    height: 1.0 /*PERCENT not supported*/
+                                ),),
                               ),
-                              gradient : LinearGradient(
-                                  begin: Alignment(0.8459399938583374,0.1310659646987915),
-                                  end: Alignment(-0.1310659646987915,0.11150387674570084),
-                                  colors: [
+                              width: 141,
+                              height: 57,
+                              decoration: BoxDecoration(
+                                borderRadius : BorderRadius.only(
+                                  topLeft: Radius.circular(15),
+                                  topRight: Radius.circular(15),
+                                  bottomLeft: Radius.circular(15),
+                                  bottomRight: Radius.circular(15),
+                                ),
+                                gradient : LinearGradient(
+                                    begin: Alignment(0.8459399938583374,0.1310659646987915),
+                                    end: Alignment(-0.1310659646987915,0.11150387674570084),
+                                    colors: [
 // 16804B
-                                    Color(0xFF006533),
-                                    Color(0xFF16804B),
+                                      Color(0xFF006533),
+                                      Color(0xFF16804B),
 
-                                  ]
-                              ),
-                            )
+                                    ]
+                                ),
+                              )
+                          ),
                         ),
                       ),
                     ),

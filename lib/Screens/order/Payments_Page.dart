@@ -1,4 +1,7 @@
+import 'package:coucou_express/Screens/order/set_location.dart';
 import 'package:flutter/material.dart';
+
+import '../../Utils/appRoutes.dart';
 class PaymentsConfirmScreen extends StatefulWidget {
   const PaymentsConfirmScreen({Key? key}) : super(key: key);
 
@@ -84,7 +87,6 @@ class _PaymentsConfirmScreenState extends State<PaymentsConfirmScreen> {
         ),
         body: Container(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 8.0,right: 8.0,bottom: 8.0,top: 10.0),
@@ -122,14 +124,19 @@ class _PaymentsConfirmScreenState extends State<PaymentsConfirmScreen> {
                                 height: 1
                             ),),
                             // Figma Flutter Generator EditWidget - TEXT
-                            Text('Edit', textAlign: TextAlign.left, style: TextStyle(
-                                color: Color(0xFF006533),
-                                fontFamily: 'BentonSansRegular',
-                                fontSize: 14,
-                                letterSpacing: 0.5,
-                                fontWeight: FontWeight.normal,
-                                height: 1
-                            ),)
+                            InkWell(
+                              onTap: (){
+                                AppRoutes.push(context, SetLocationScreen());
+                              },
+                              child: Text('Edit', textAlign: TextAlign.left, style: TextStyle(
+                                  color: Color(0xFF006533),
+                                  fontFamily: 'BentonSansRegular',
+                                  fontSize: 14,
+                                  letterSpacing: 0.5,
+                                  fontWeight: FontWeight.normal,
+                                  height: 1
+                              ),),
+                            )
                           ],
                         ),
                         Row(
@@ -166,7 +173,7 @@ class _PaymentsConfirmScreenState extends State<PaymentsConfirmScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 8.0,right: 8.0,bottom: 0.0,top: 0.0),
+                padding: const EdgeInsets.only(left: 8.0,right: 8.0,bottom: 20.0,top: 10.0),
                 child: Container(
                   width: 335,
                   height: 108,
@@ -277,183 +284,183 @@ class _PaymentsConfirmScreenState extends State<PaymentsConfirmScreen> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 0.0,left: 4.0,right: 4.0,top: 0),
-                child: Container(
-                  width: 347,
-                  height: 206,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('images/vfinal.png',),
-                      fit: BoxFit.cover,
-                      opacity: .1/2,
-                    ),
-                    borderRadius : BorderRadius.circular(16),
-                    gradient : LinearGradient(
-                        begin: Alignment(0.8459399938583374,0.1310659646987915),
-                        end: Alignment(-0.1310659646987915,0.11150387674570084),
-                        colors: [
-                          Color(0xFF006533),
-                          Color(0xFF16804B),
-                        ]
-                    ),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          right: 22.0,
-                          left: 22.0,
-                          top: 20,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('Sub-Total', textAlign: TextAlign.left, style: TextStyle(
-                                color: Color.fromRGBO(254, 254, 255, 1),
-                                fontFamily: 'BentonSansMedium',
-                                fontSize: 14,
-                                letterSpacing: 0.5,
-                                fontWeight: FontWeight.normal,
-                                height: 1
-                            ),),
-                            // Figma Flutter Generator SubtotalpriceWidget - TEXT
-                            Text('120 \$', textAlign: TextAlign.left, style: TextStyle(
-                                color: Color.fromRGBO(254, 254, 255, 1),
-                                fontFamily: 'BentonSansMedium',
-                                fontSize: 14,
-                                letterSpacing: 0.5,
-                                fontWeight: FontWeight.normal,
-                                height: 1
-                            ),)
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          right: 22.0,
-                          left: 22.0,
-                          top: 0.0,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('Delivery Charge', textAlign: TextAlign.left, style: TextStyle(
-                                color: Color.fromRGBO(254, 254, 255, 1),
-                                fontFamily: 'BentonSansMedium',
-                                fontSize: 14,
-                                letterSpacing: 0.5,
-                                fontWeight: FontWeight.normal,
-                                height: 1
-                            ),),
-                            // Figma Flutter Generator SubtotalpriceWidget - TEXT
-                            Text('10 \$', textAlign: TextAlign.left, style: TextStyle(
-                                color: Color.fromRGBO(254, 254, 255, 1),
-                                fontFamily: 'BentonSansMedium',
-                                fontSize: 14,
-                                letterSpacing: 0.5,
-                                fontWeight: FontWeight.normal,
-                                height: 1
-                            ),)
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          right: 22.0,
-                          left: 22.0,
-                          top: 0.0,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('Discount', textAlign: TextAlign.left, style: TextStyle(
-                                color: Color.fromRGBO(254, 254, 255, 1),
-                                fontFamily: 'BentonSansMedium',
-                                fontSize: 14,
-                                letterSpacing: 0.5,
-                                fontWeight: FontWeight.normal,
-                                height: 1
-                            ),),
-                            // Figma Flutter Generator SubtotalpriceWidget - TEXT
-                            Text('20 \$', textAlign: TextAlign.left, style: TextStyle(
-                                color: Color.fromRGBO(254, 254, 255, 1),
-                                fontFamily: 'BentonSansMedium',
-                                fontSize: 14,
-                                letterSpacing: 0.5,
-                                fontWeight: FontWeight.normal,
-                                height: 1
-                            ),)
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          right: 22.0,
-                          left: 22.0,
-                          top: 0.0,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            // Figma Flutter Generator TotalWidget - TEXT
-                            Text('Total', textAlign: TextAlign.left, style: TextStyle(
-                                color: Color.fromRGBO(254, 254, 255, 1),
-                                fontFamily: 'BentonSansBold',
-                                fontSize: 18,
-                                letterSpacing: 0.6428571343421936,
-                                fontWeight: FontWeight.normal,
-                                height: 1
-                            ),),
-                            // Figma Flutter Generator TotalpriceWidget - TEXT
-                            Text('150\$', textAlign: TextAlign.left, style: TextStyle(
-                                color: Color.fromRGBO(254, 254, 255, 1),
-                                fontFamily: 'BentonSansBold',
-                                fontSize: 18,
-                                letterSpacing: 0.6428571343421936,
-                                fontWeight: FontWeight.normal,
-                                height: 1
-                            ),)
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          bottom: 8.0,
-                        ),
-                        child: Container(
-                            child: Center(
-                              child:
-                              Text('Place My Order', textAlign: TextAlign.left, style: TextStyle(
-                                  color: Color(0xFF006533),
-                                  fontFamily: 'BentonSansBold',
-                                  fontSize: 14,
-                                  letterSpacing: 0.5,
-                                  fontWeight: FontWeight.normal,
-                                  height: 1
-                              ),),
-                            ),
-                            width: 325,
-                            height: 57,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15.0),
-                              gradient: LinearGradient(
-                                  begin: Alignment(0.8459399938583374,
-                                      0.1310659646987915),
-                                  end: Alignment(-0.1310659646987915,
-                                      0.11150387674570084),
-                                  colors: [
-// 16804B
-                                    Colors.white,
-                                    Colors.white,
-                                  ]),
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+//               Padding(
+//                 padding: const EdgeInsets.only(bottom: 0.0,left: 4.0,right: 4.0,top: 0),
+//                 child: Container(
+//                   width: 347,
+//                   height: 206,
+//                   decoration: BoxDecoration(
+//                     image: DecorationImage(
+//                       image: AssetImage('images/vfinal.png',),
+//                       fit: BoxFit.cover,
+//                       opacity: .1/2,
+//                     ),
+//                     borderRadius : BorderRadius.circular(16),
+//                     gradient : LinearGradient(
+//                         begin: Alignment(0.8459399938583374,0.1310659646987915),
+//                         end: Alignment(-0.1310659646987915,0.11150387674570084),
+//                         colors: [
+//                           Color(0xFF006533),
+//                           Color(0xFF16804B),
+//                         ]
+//                     ),
+//                   ),
+//                   child: Column(
+//                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                     children: [
+//                       Padding(
+//                         padding: const EdgeInsets.only(
+//                           right: 22.0,
+//                           left: 22.0,
+//                           top: 20,
+//                         ),
+//                         child: Row(
+//                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                           children: [
+//                             Text('Sub-Total', textAlign: TextAlign.left, style: TextStyle(
+//                                 color: Color.fromRGBO(254, 254, 255, 1),
+//                                 fontFamily: 'BentonSansMedium',
+//                                 fontSize: 14,
+//                                 letterSpacing: 0.5,
+//                                 fontWeight: FontWeight.normal,
+//                                 height: 1
+//                             ),),
+//                             // Figma Flutter Generator SubtotalpriceWidget - TEXT
+//                             Text('120 \$', textAlign: TextAlign.left, style: TextStyle(
+//                                 color: Color.fromRGBO(254, 254, 255, 1),
+//                                 fontFamily: 'BentonSansMedium',
+//                                 fontSize: 14,
+//                                 letterSpacing: 0.5,
+//                                 fontWeight: FontWeight.normal,
+//                                 height: 1
+//                             ),)
+//                           ],
+//                         ),
+//                       ),
+//                       Padding(
+//                         padding: const EdgeInsets.only(
+//                           right: 22.0,
+//                           left: 22.0,
+//                           top: 0.0,
+//                         ),
+//                         child: Row(
+//                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                           children: [
+//                             Text('Delivery Charge', textAlign: TextAlign.left, style: TextStyle(
+//                                 color: Color.fromRGBO(254, 254, 255, 1),
+//                                 fontFamily: 'BentonSansMedium',
+//                                 fontSize: 14,
+//                                 letterSpacing: 0.5,
+//                                 fontWeight: FontWeight.normal,
+//                                 height: 1
+//                             ),),
+//                             // Figma Flutter Generator SubtotalpriceWidget - TEXT
+//                             Text('10 \$', textAlign: TextAlign.left, style: TextStyle(
+//                                 color: Color.fromRGBO(254, 254, 255, 1),
+//                                 fontFamily: 'BentonSansMedium',
+//                                 fontSize: 14,
+//                                 letterSpacing: 0.5,
+//                                 fontWeight: FontWeight.normal,
+//                                 height: 1
+//                             ),)
+//                           ],
+//                         ),
+//                       ),
+//                       Padding(
+//                         padding: const EdgeInsets.only(
+//                           right: 22.0,
+//                           left: 22.0,
+//                           top: 0.0,
+//                         ),
+//                         child: Row(
+//                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                           children: [
+//                             Text('Discount', textAlign: TextAlign.left, style: TextStyle(
+//                                 color: Color.fromRGBO(254, 254, 255, 1),
+//                                 fontFamily: 'BentonSansMedium',
+//                                 fontSize: 14,
+//                                 letterSpacing: 0.5,
+//                                 fontWeight: FontWeight.normal,
+//                                 height: 1
+//                             ),),
+//                             // Figma Flutter Generator SubtotalpriceWidget - TEXT
+//                             Text('20 \$', textAlign: TextAlign.left, style: TextStyle(
+//                                 color: Color.fromRGBO(254, 254, 255, 1),
+//                                 fontFamily: 'BentonSansMedium',
+//                                 fontSize: 14,
+//                                 letterSpacing: 0.5,
+//                                 fontWeight: FontWeight.normal,
+//                                 height: 1
+//                             ),)
+//                           ],
+//                         ),
+//                       ),
+//                       Padding(
+//                         padding: const EdgeInsets.only(
+//                           right: 22.0,
+//                           left: 22.0,
+//                           top: 0.0,
+//                         ),
+//                         child: Row(
+//                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                           children: [
+//                             // Figma Flutter Generator TotalWidget - TEXT
+//                             Text('Total', textAlign: TextAlign.left, style: TextStyle(
+//                                 color: Color.fromRGBO(254, 254, 255, 1),
+//                                 fontFamily: 'BentonSansBold',
+//                                 fontSize: 18,
+//                                 letterSpacing: 0.6428571343421936,
+//                                 fontWeight: FontWeight.normal,
+//                                 height: 1
+//                             ),),
+//                             // Figma Flutter Generator TotalpriceWidget - TEXT
+//                             Text('150\$', textAlign: TextAlign.left, style: TextStyle(
+//                                 color: Color.fromRGBO(254, 254, 255, 1),
+//                                 fontFamily: 'BentonSansBold',
+//                                 fontSize: 18,
+//                                 letterSpacing: 0.6428571343421936,
+//                                 fontWeight: FontWeight.normal,
+//                                 height: 1
+//                             ),)
+//                           ],
+//                         ),
+//                       ),
+//                       Padding(
+//                         padding: const EdgeInsets.only(
+//                           bottom: 8.0,
+//                         ),
+//                         child: Container(
+//                             child: Center(
+//                               child:
+//                               Text('Place My Order', textAlign: TextAlign.left, style: TextStyle(
+//                                   color: Color(0xFF006533),
+//                                   fontFamily: 'BentonSansBold',
+//                                   fontSize: 14,
+//                                   letterSpacing: 0.5,
+//                                   fontWeight: FontWeight.normal,
+//                                   height: 1
+//                               ),),
+//                             ),
+//                             width: 325,
+//                             height: 57,
+//                             decoration: BoxDecoration(
+//                               borderRadius: BorderRadius.circular(15.0),
+//                               gradient: LinearGradient(
+//                                   begin: Alignment(0.8459399938583374,
+//                                       0.1310659646987915),
+//                                   end: Alignment(-0.1310659646987915,
+//                                       0.11150387674570084),
+//                                   colors: [
+// // 16804B
+//                                     Colors.white,
+//                                     Colors.white,
+//                                   ]),
+//                             )),
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//               ),
             ],
           ),
         ),

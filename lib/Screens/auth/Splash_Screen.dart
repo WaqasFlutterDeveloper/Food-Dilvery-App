@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:coucou_express/Screens/Auth_Section/logIn_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../Utils/appRoutes.dart';
+import 'logIn_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

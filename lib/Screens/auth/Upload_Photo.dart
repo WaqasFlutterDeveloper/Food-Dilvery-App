@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../Utils/appRoutes.dart';
+import 'Set_Location.dart';
+
 class UploadPhotoScreen extends StatefulWidget {
   const UploadPhotoScreen({Key? key}) : super(key: key);
 
@@ -177,11 +180,11 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
         body: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
+              padding: const EdgeInsets.only(top: 10, left: 0, right: 15),
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 15.0),
+                    padding: const EdgeInsets.only(bottom: 15.0,right: 50),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -225,7 +228,7 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
                             ? Column(
                           children: [
                           Padding(
-                            padding: const EdgeInsets.only(bottom: 40.0),
+                            padding: const EdgeInsets.only(bottom: 40.0,left: 50),
                             child: Container(
                               width: 245,
                               height: 238,
@@ -255,13 +258,10 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
                             ),
                           ),
                             Padding(
-                              padding: const EdgeInsets.only(top: 40.0),
+                              padding: const EdgeInsets.only(top: 40.0,left: 40),
                               child: InkWell(
                                 onTap: (){
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(builder: (context) => SignUpScreen()),
-                                  // );
+                                  AppRoutes.push(context, LocationScreen());
                                 },
                                 child: Container(
                                     child: Center(
@@ -304,41 +304,44 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
                                   onTap: (){
                                     _showPicker();
                                   },
-                                  child: Container(
-                                      width: 325,
-                                      height: 129,
-                                      decoration: BoxDecoration(
-                                        borderRadius : BorderRadius.only(
-                                          topLeft: Radius.circular(22),
-                                          topRight: Radius.circular(22),
-                                          bottomLeft: Radius.circular(22),
-                                          bottomRight: Radius.circular(22),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 20.0),
+                                    child: Container(
+                                        width: 325,
+                                        height: 129,
+                                        decoration: BoxDecoration(
+                                          borderRadius : BorderRadius.only(
+                                            topLeft: Radius.circular(22),
+                                            topRight: Radius.circular(22),
+                                            bottomLeft: Radius.circular(22),
+                                            bottomRight: Radius.circular(22),
+                                          ),
+                                          boxShadow : [BoxShadow(
+                                              color: Color.fromRGBO(90, 108, 234, 0.07000000029802322),
+                                              offset: Offset(0,0),
+                                              blurRadius: 50
+                                          )],
+                                          color : Color.fromRGBO(255, 255, 255, 1),
                                         ),
-                                        boxShadow : [BoxShadow(
-                                            color: Color.fromRGBO(90, 108, 234, 0.07000000029802322),
-                                            offset: Offset(0,0),
-                                            blurRadius: 50
-                                        )],
-                                        color : Color.fromRGBO(255, 255, 255, 1),
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                              height:50,
+                                              width: 50,
+                                              child:Icon(Icons.photo_library,size: 46,color:Color(0xFF006533),)
+                                          ),
+                                          Text('From Gallery', textAlign: TextAlign.left, style: TextStyle(
+                                              color: Color.fromRGBO(0, 0, 0, 1),
+                                              fontFamily: 'BentonSansBold',
+                                              fontSize: 14,
+                                              letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                                              fontWeight: FontWeight.normal,
+                                              height: 1.5 /*PERCENT not supported*/
+                                          ),),
+                                        ],
                                       ),
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                            height:50,
-                                            width: 50,
-                                            child:Icon(Icons.photo_library,size: 46,color:Color(0xFF006533),)
-                                        ),
-                                        Text('From Gallery', textAlign: TextAlign.left, style: TextStyle(
-                                            color: Color.fromRGBO(0, 0, 0, 1),
-                                            fontFamily: 'BentonSansBold',
-                                            fontSize: 14,
-                                            letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
-                                            fontWeight: FontWeight.normal,
-                                            height: 1.5 /*PERCENT not supported*/
-                                        ),),
-                                      ],
                                     ),
                                   ),
                                 )

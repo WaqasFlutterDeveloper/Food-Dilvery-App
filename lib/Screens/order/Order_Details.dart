@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+
+import '../../Utils/appRoutes.dart';
+import '../home/Home.dart';
+import 'Payments_Page.dart';
 class OrderDetailsScreen extends StatefulWidget {
   const OrderDetailsScreen({Key? key}) : super(key: key);
 
@@ -45,16 +49,21 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                   ),
                   child: Row(
                     children: [
-                      Container(
-                        width: 45,
-                        height: 45,
-                        decoration: BoxDecoration(
-                          borderRadius : BorderRadius.circular(15),
-                          color : Color(0xFFF9A84D),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 10.0),
-                          child: Icon(Icons.arrow_back_ios),
+                      InkWell(
+                        onTap: (){
+                          AppRoutes.closeAllScreensAndNavigate(context, HomePage());
+                        },
+                        child: Container(
+                          width: 45,
+                          height: 45,
+                          decoration: BoxDecoration(
+                            borderRadius : BorderRadius.circular(15),
+                            color : Color(0xFFF9A84D),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Icon(Icons.arrow_back_ios),
+                          ),
                         ),
                       ),
                     ],
@@ -1032,33 +1041,38 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                        padding: const EdgeInsets.only(
                          bottom: 8.0,
                        ),
-                       child: Container(
-                           child: Center(
-                             child:
-                             Text('Place My Order', textAlign: TextAlign.left, style: TextStyle(
-                                 color: Color(0xFF006533),
-                                 fontFamily: 'BentonSansBold',
-                                 fontSize: 14,
-                                 letterSpacing: 0.5,
-                                 fontWeight: FontWeight.normal,
-                                 height: 1
-                             ),),
-                           ),
-                           width: 325,
-                           height: 57,
-                           decoration: BoxDecoration(
-                             borderRadius: BorderRadius.circular(15.0),
-                             gradient: LinearGradient(
-                                 begin: Alignment(0.8459399938583374,
-                                     0.1310659646987915),
-                                 end: Alignment(-0.1310659646987915,
-                                     0.11150387674570084),
-                                 colors: [
+                       child: InkWell(
+                         onTap: (){
+                           AppRoutes.push(context, PaymentsConfirmScreen());
+                         },
+                         child: Container(
+                             child: Center(
+                               child:
+                               Text('Place My Order', textAlign: TextAlign.left, style: TextStyle(
+                                   color: Color(0xFF006533),
+                                   fontFamily: 'BentonSansBold',
+                                   fontSize: 14,
+                                   letterSpacing: 0.5,
+                                   fontWeight: FontWeight.normal,
+                                   height: 1
+                               ),),
+                             ),
+                             width: 325,
+                             height: 57,
+                             decoration: BoxDecoration(
+                               borderRadius: BorderRadius.circular(15.0),
+                               gradient: LinearGradient(
+                                   begin: Alignment(0.8459399938583374,
+                                       0.1310659646987915),
+                                   end: Alignment(-0.1310659646987915,
+                                       0.11150387674570084),
+                                   colors: [
 // 16804B
-                                   Colors.white,
-                                   Colors.white,
-                                 ]),
-                           )),
+                                     Colors.white,
+                                     Colors.white,
+                                   ]),
+                             )),
+                       ),
                      ),
                    ],
                  ),

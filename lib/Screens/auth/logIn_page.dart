@@ -1,9 +1,11 @@
-import 'package:coucou_express/Screens/Auth_Section/signUp_page.dart';
+import 'package:coucou_express/Screens/auth/signUp_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 
 import '../../Utils/appRoutes.dart';
-import '../Orders_Section/home_page.dart';
+import '../home/Home.dart';
+import 'Forget_Password.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -215,7 +217,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             },
                             child: Padding(
                               padding: const EdgeInsets.fromLTRB(8.0, 15, 8.0, 0.0),
-                              child: Text('Or Continue With', textAlign: TextAlign.center, style: TextStyle(
+                              child: Text('Or Continue With Email', textAlign: TextAlign.center, style: TextStyle(
                                   color: Color.fromRGBO(9, 5, 28, 1),
                                   fontFamily: 'BentonSansBold',
                                   fontSize: 12,
@@ -338,14 +340,19 @@ class _LoginScreenState extends State<LoginScreen> {
 
                           Padding(
                               padding: const EdgeInsets.all(10.0),
-                              child: Text('Forgot Your Password?', textAlign: TextAlign.center, style: TextStyle(
-                                  color: Color(0xFF006533),
-                                  fontFamily: 'BentonSansMedium',
-                                  fontSize: 12,
-                                  letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
-                                  fontWeight: FontWeight.normal,
-                                  height: 1.5 /*PERCENT not supported*/
-                              ),)
+                              child: InkWell(
+                                onTap: (){
+                                  AppRoutes.push(context, ForgetPasswordScreen ());
+                                },
+                                child: Text('Forgot Your Password?', textAlign: TextAlign.center, style: TextStyle(
+                                    color: Color(0xFF006533),
+                                    fontFamily: 'BentonSansMedium',
+                                    fontSize: 12,
+                                    letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                                    fontWeight: FontWeight.normal,
+                                    height: 1.5 /*PERCENT not supported*/
+                                ),),
+                              )
                           ),
 
                           Padding(
