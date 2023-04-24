@@ -2,6 +2,9 @@ import 'package:coucou_express/Screens/Auth_Section/signUp_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 
+import '../../Utils/appRoutes.dart';
+import '../Orders_Section/home_page.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -349,10 +352,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             padding: const EdgeInsets.only(top: 26.0),
                             child: InkWell(
                               onTap: (){
-                                // Navigator.push(
-                                //   context,
-                                //   MaterialPageRoute(builder: (context) => SignUpScreen()),
-                                // );
+                                AppRoutes.replace(context, const HomePage());
                               },
                               child: Container(
                                   child: Center(

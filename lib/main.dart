@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'Screens/Auth_Section/Forget_Password.dart';
+import 'Screens/Auth_Section/ResetPassword.dart';
+import 'Screens/Auth_Section/Set_Location.dart';
+import 'Screens/Auth_Section/Signup_Process.dart';
+import 'Screens/Auth_Section/Splash_Screen.dart';
+import 'Screens/Auth_Section/Upload_Photo.dart';
+import 'Screens/Auth_Section/Verification_Otp_Code.dart';
 import 'Screens/Auth_Section/logIn_page.dart';
 import 'Screens/Auth_Section/signUp_page.dart';
 import 'Screens/Bottom_Navigation_Bar/Profile_Page.dart';
@@ -33,8 +40,31 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // home: ChattingScreen(),
       // home: ChatScreen(),
-      home: NotificationScreen(),
+      home: SplashScreen(),
       // home: HomeScreen(),
     );
   }
 }
+
+
+// initialRoute: WelcomeScreen.id,
+// // initialRoute: Std.id,
+// // initialRoute: ChooiseNearestBus.id,
+// routes: {
+// // Std.id : (context) => Std(),
+// WelcomeScreen.id : (context) => WelcomeScreen(),
+// AccountType.id : (context) => AccountType(),
+// AdminSignUp.id : (context) => AdminSignUp(),
+// DriverSignUp.id : (context) => DriverSignUp(),
+// StudentSignUp.id : (context) => StudentSignUp(),
+// AdminPage.id : (context) => AdminPage(),
+// DriverPage.id : (context) => DriverPage(),
+// StudentPage.id : (context) => StudentPage(),
+// ForgetPasswordPage.id : (context) => ForgetPasswordPage(),
+// StudentViewLocationPage.id : (context) => StudentViewLocationPage(),
+// // TestMood.id : (context) => TestMood(),
+// FireMape.id : (context) => FireMape(),
+// Try.id : (context) => Try(),
+//
+//
+// },

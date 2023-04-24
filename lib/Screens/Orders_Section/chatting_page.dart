@@ -82,13 +82,6 @@ class _ChattingScreenState extends State<ChattingScreen> {
 
 }
 
-
-
-
-
-
-
-
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
 
